@@ -1,166 +1,23 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ChatGPT – ein KI-Modell von OpenAI, das mit Menschen in natürlicher Sprache interagiert.">
-    <title>ChatGPT - Über mich</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            margin: 0;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            display: block;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        main {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        h2 {
-            color: #333;
-            font-size: 1.8rem;
-        }
-        p {
-            line-height: 1.8;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-        }
-        .grid-item {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>Über ChatGPT</h1>
-</header>
-
-<nav>
-    <a href="#wer-bin-ich">Wer bin ich?</a>
-    <a href="#was-kann-ich">Was kann ich?</a>
-    <a href="#anwendungen">Anwendungen</a>
-    <a href="#technische-details">Technische Details</a>
-    <a href="#kontakt">Kontakt</a>
-</nav>
-
-<main>
-    <section id="wer-bin-ich">
-        <h2>Wer bin ich?</h2>
-        <p>Ich bin ChatGPT, ein fortschrittliches KI-Modell, das von OpenAI entwickelt wurde. Meine Hauptfunktion ist es, mit Menschen in natürlicher Sprache zu kommunizieren und bei einer Vielzahl von Aufgaben zu helfen, darunter die Beantwortung von Fragen, das Schreiben von Texten und vieles mehr.</p>
-    </section>
-
-    <section id="was-kann-ich">
-        <h2>Was kann ich?</h2>
-        <p>Ich kann eine Vielzahl von Aufgaben erledigen, wie zum Beispiel:</p>
-        <ul>
-            <li>Antworten auf Fragen geben</li>
-            <li>Texte und Geschichten schreiben</li>
-            <li>Code und Programmierungen unterstützen</li>
-            <li>Mathematik und wissenschaftliche Berechnungen durchführen</li>
-            <li>Sprachen übersetzen</li>
-            <li>Empfehlungen aussprechen</li>
-        </ul>
-    </section>
-
-    <section id="anwendungen">
-        <h2>Meine Anwendungen</h2>
-        <p>Ich kann in verschiedenen Bereichen eingesetzt werden, darunter:</p>
-        <div class="grid-container">
-            <div class="grid-item">
-                <h3>Bildung</h3>
-                <p>Ich helfe bei der Beantwortung von Fragen und dem Lernen neuer Themen.</p>
-            </div>
-            <div class="grid-item">
-                <h3>Unterhaltung</h3>
-                <p>Ich schreibe Geschichten, spiele Textabenteuer und gebe kreative Vorschläge.</p>
-            </div>
-            <div class="grid-item">
-                <h3>Programmierhilfe</h3>
-                <p>Ich unterstütze bei der Code-Entwicklung und behebe Fehler.</p>
-            </div>
+    <header>
+        <div class="nav-logo">
+            <img src="/logo.png" width="80px" height="auto" class="logo"/>
         </div>
-    </section>
-
-    <section id="technische-details">
-        <h2>Technische Details</h2>
-        <p>Ich basiere auf GPT-3, einem der leistungsfähigsten Sprachmodelle der Welt. Entwickelt mit Milliarden von Parametern und trainiert auf einer Vielzahl von Textdaten, kann ich auf viele Themen reagieren und flexibel auf Fragen und Aufgaben reagieren.</p>
-    </section>
-
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <p>Du kannst mit mir über eine Vielzahl von Plattformen interagieren. Einige davon beinhalten:</p>
-        <ul>
-            <li>Websites und Chat-Dienste</li>
-            <li>Integrationen in Apps und Software</li>
-            <li>Sprachassistenz-Systeme</li>
-        </ul>
-    </section>
-</main>
-
-<footer>
-    <p>ChatGPT - Ein Produkt von OpenAI &copy; 2024</p>
-    <div class="footer-links">
-        <a href="https://openai.com">OpenAI</a>
-        <a href="https://github.com/openai">GitHub</a>
-        <a href="mailto:support@openai.com">Kontakt</a>
-    </div>
-</footer>
+        <ul class="nav">
+            <a class="nav-link"><li class="nav-item">Home</li></a>
+            <a class="nav-link"><li class="nav-item">About Us</li></a>
+        </ul> 
+    </header>
+    <iframe src="https://youtube.com/embed/njX2bu-_Vw4?autoplay=1&mute=1&hd=1&controls=0&rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media;" allowfullscreen width="1920" height="1080"></iframe>
+<div class="main">
+    <h1>This is a heading</h1>
+    <p>This is a paragraph.</p>
+</div>
 
 </body>
 </html>
