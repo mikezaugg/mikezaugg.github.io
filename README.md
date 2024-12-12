@@ -16,4 +16,4 @@ A personal portfolio website to showcase my skills, projects, and creativity in 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone (https://github.com/mikezaugg/mikezaugg.github.io)
+   git clone https://github.com/mikezaugg/mikezaugg.github.io
