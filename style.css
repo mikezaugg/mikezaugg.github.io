@@ -1,38 +1,554 @@
-h1{
-    font-size: 44px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: red;
+span, p {
+  font-family: "Anek Devanagari", sans-serif !important;
+  font-weight: 400;
+  font-style: normal;
 }
-body{
+a {
+  font-family: "Anek Devanagari", sans-serif !important;
+  font-weight: 600;
+  font-style: normal;
+}
+h1, h2, h3 {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.name {
+  font-weight: 700;
+  font-size: 30px;
+}
+body.white-mode{
+  color: #000000;
+  width: 100%;
+  height: 100%;
+  /* Add your background pattern here */
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+}
+/* Hintergrund-Blur nur anwenden */
+body.white-mode::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit; /* Erbt das Hintergrundbild */
+  background-size: inherit;
+  background-position: inherit;
+  filter: blur(5px); /* Blur nur auf Hintergrund anwenden */
+  z-index: -1; /* Damit der Inhalt darüber bleibt */
+}
+
+/* Inhalte bleiben scharf */
+body.white-mode > * {
+  position: relative; /* Damit der Inhalt über dem unscharfen Hintergrund bleibt */
+  z-index: 1;
+}
+
+/* Dark Mode Hintergrund und Textfarbe */
+body.dark-mode {
+  font-family: "Raleway", sans-serif !important;
+  color: white;
+  width: 100%;
+  height: 100%;
+  background-color: #313131;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  position: relative; /* Setzt den Kontext für das Pseudo-Element */
+}
+
+/* Hintergrund-Blur nur anwenden */
+body.dark-mode::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit; /* Erbt das Hintergrundbild */
+  background-size: inherit;
+  background-position: inherit;
+  filter: blur(50px); /* Blur nur auf Hintergrund anwenden */
+  z-index: -1; /* Damit der Inhalt darüber bleibt */
+}
+
+/* Inhalte bleiben scharf */
+body.dark-mode > * {
+  position: relative; /* Damit der Inhalt über dem unscharfen Hintergrund bleibt */
+  z-index: 1;
+}
+
+
+/* Icon Styling */
+/* Icon Styling */
+#toggleIcon {
+  font-size: 32px;
+  cursor: pointer;
+  transition: transform 0.8s ease, color 0.3s ease; /* Sanfter Übergang für Position und Farbe */
+  color: #f0f0f0; /* Helle Standardfarbe */
+}
+
+/* Optional: Vergrößert das Icon beim Hover */
+#toggleIcon:hover {
+  transform: scale(1.2);
+}
+
+/* Animation beim Wechseln zwischen Icons */
+@keyframes iconSwitch {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* Moon to Lightbulb Animation */
+body.dark-mode #toggleIcon, body:not(.dark-mode) #toggleIcon {
+  animation: iconSwitch 0.6s ease-in-out;
+}
+
+/* Moon-Icon (Light Mode) */
+#toggleIcon.fa-moon {
+  color: #ffe600; /* Helle Farbe im Light Mode */
+}
+
+/* Lightbulb-Icon (Dark Mode) */
+#toggleIcon.fa-lightbulb {
+  color: #000000; /* Helle Gelb für das Birnen-Icon */
+}
+
+
+/* Restliches CSS bleibt unverändert */
+.nav-list {
+  list-style-type: none;
+  display: flex; /* Standard-Layout */
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Icon Styling */
+.hamburger {
+  display: none; /* Standardmäßig versteckt */
+}
+
+@media only screen and (max-width: 992px) {
+  .hamburger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .hamburger span {
+    position: absolute;
+    height: 4px;
+    width: 100%;
     background-color: black;
+    border-radius: 2px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .hamburger span:nth-child(1) {
+    top: 0;
+  }
+
+  .hamburger span:nth-child(2) {
+    top: 10px;
+  }
+
+  .hamburger span:nth-child(3) {
+    top: 20px;
+  }
+
+  /* Dark Mode Anpassung */
+  body.dark-mode .hamburger span {
+    background-color: white;
+  }
+
+  /* Animation für geöffneten Zustand - Kreuz-Icon */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px; /* Verändert die Position */
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0; /* Unsichtbar machen */
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 10px; /* Verändert die Position */
+  }
 }
-.main{
-    padding: 0px 50px;
+
+/* Dark Mode Anpassungen für andere Elemente bleiben unverändert */
+
+a {
+  display: inline;
+  text-decoration: none;
 }
-li{
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    font-weight: 600;
+
+.flex-start {
+  display: flex;
+  justify-content: start;
 }
-.nav-link{
-    text-decoration: none;
+
+.flex-end {
+  display: flex;
+  justify-content: end;
 }
-.nav-item{
-    list-style: none;
-    display: inline;
-    margin-right: 20px;
+
+.content {
+  width: 40%;
+  margin: auto;
 }
-.nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
+
+.pb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease;
 }
-.nav-logo{
-    display: flex;
-    justify-content: space-around;
+
+/* Standard Schatten */
+.pb:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Schatten für Light Mode */
 }
-.logo{
-    margin-top: 20px;
-    display: flex;
-    align-self: center;
+
+/* Dark Mode Schatten */
+body.dark-mode .pb:hover {
+  box-shadow: 0 4px 20px rgba(199, 199, 199, 0.7); /* Weißer Schatten für Dark Mode */
+}
+
+/* Hier spezifizieren wir nur die Hover-Interaktionen auf die einzelnen Texte */
+.pb-container h3 {
+  display: inline;
+  transition: text-shadow 0.3s ease;
+}
+
+/* Standard Textschatten für h3 */
+.pb-container h3:hover {
+  text-shadow: 2px 2px 5px rgba(119, 119, 119, 0.7); /* Schatten für Light Mode */
+}
+
+/* Dark Mode Textschatten für h3 */
+body.dark-mode .pb-container h3:hover {
+  text-shadow: 2px 2px 5px rgba(199, 199, 199, 0.7); /* Weißer Textschatten für Dark Mode */
+}
+
+.location {
+  font-family: "Anek Devanagari", sans-serif !important;
+  display: inline;
+  color: #6cb8ff;
+  font-weight: 500;
+}
+
+.location:hover {
+  text-shadow: 2px 2px 5px rgba(201, 201, 201, 0.7); /* Schatten für Light Mode */
+}
+
+/* Dark Mode Textschatten für Location */
+body.dark-mode .location:hover {
+  text-shadow: 2px 2px 5px rgba(199, 199, 199, 0.7); /* Weißer Textschatten für Dark Mode */
+}
+
+.pb-container {
+  margin-top: 130px;
+}
+
+/* Wink-Icon Styling */
+.wink-icon {
+  margin-left: 10px;
+  font-size: 30px; /* Größe der Hand */
+  transform: rotate(-10deg); /* Ausgangswinkel */
+  display: inline-block; /* Notwendig für Animationen */
+  transition: transform 0.3s ease; /* Sanfter Übergang */
+  cursor: pointer;
+  transform-origin: bottom right; /* Drehpunkt auf den Handballen setzen */
+}
+
+.wink-icon:hover {
+  animation: wave 0.6s ease-in-out infinite; /* Animation starten */
+}
+
+/* Keyframes für die Winken-Animation */
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(-20deg); /* Ausgangsposition */
+  }
+  25% {
+    transform: rotate(-5deg); /* Leicht hoch */
+  }
+  50% {
+    transform: rotate(10deg); /* Höchster Punkt */
+  }
+  75% {
+    transform: rotate(-5deg); /* Zurück in Richtung Ausgang */
+  }
+}
+
+/* Projektkarten Layout */
+.project-card-container {
+  display: flex;
+  flex-wrap: wrap; /* Ermöglicht das Umbruchverhalten */
+  gap: 20px; /* Abstand zwischen den Karten */
+  justify-content: space-between; /* Verteilung der Karten */
+  margin-top: 10px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 48%; /* Zwei Karten nebeneinander */
+  max-width: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: #fff; /* Helle Hintergrundfarbe im Light Mode */
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Leichte Hebung beim Hover */
+  box-shadow: 0 4px 20px rgba(61, 61, 61, 0.7);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 15px;
+}
+
+.project-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333; /* Dunkler Text im Light Mode */
+}
+
+.project-description {
+  font-size: 1em;
+  margin-bottom: 15px;
+  color: #555; /* Hellerer Text im Light Mode */
+}
+
+.project-technologies {
+  font-size: 0.9em;
+  color: #888; /* Etwas blasserer Text im Light Mode */
+  margin-bottom: 15px;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(13, 110, 253, 1);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.project-link:hover {
+  background-color: rgba(13, 110, 253, 1);
+}
+
+/* Dark Mode Anpassungen */
+body.dark-mode .project-card {
+  background-color: #181818; /* Dunklerer Hintergrund im Dark Mode */
+  border: 1px solid #272727; /* Dunklerer Rand im Dark Mode */
+}
+
+body.dark-mode .project-title {
+  color: #fff; /* Weißer Text im Dark Mode */
+}
+
+body.dark-mode .project-description {
+  color: #ccc; /* Hellerer Text im Dark Mode */
+}
+
+body.dark-mode .project-technologies {
+  color: #bbb; /* Etwas blasserer Text im Dark Mode */
+}
+
+body.dark-mode .project-link {
+  background-color: rgba(13, 110, 253, 1); /* Hellerer Link im Dark Mode */
+}
+
+body.dark-mode .project-link:hover {
+  background-color: rgba(13, 110, 253, 1); /* Dunklerer Hover-Effekt im Dark Mode */
+}
+.fa-brands {
+  margin-right: 15px;
+}
+.margin-top-80{
+  margin-top: 80px;
+}
+/* Standard-Stil für das nav-item */
+.nav-item {
+  padding: 10px;
+}
+
+/* Übergang auf das a-Tag anwenden */
+.nav-item a {
+  display: inline-block;  /* Wichtig für das Padding */
+  transition: background-color 1s ease, opacity 1s ease, padding 0.3s ease, border-radius 0.3s ease; /* Übergang für mehrere Eigenschaften */
+  text-decoration: none;  /* Entfernt die Standard-Unterstreichung */
+  padding: 10px;
+  border-radius: 30px;
+}
+
+/* Hover-Effekt für Hellmodus */
+.nav-item a:hover {
+  opacity: 0.5;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+/* Standard-Hintergrundfarbe im Hellmodus */
+body:not(.dark-mode) .nav-item a:hover {
+  background-color: #e4e4e4;  /* Hintergrundfarbe schwarz im Light Mode */
+}
+
+/* Hover-Effekt für Dark Mode */
+body.dark-mode .nav-item a:hover {
+  background-color: #ffffff;  /* Hintergrundfarbe weiß im Dark Mode */
+  padding: 10px;
+  border-radius: 30px;
+}
+/* From Uiverse.io by cssbuttons-io */ 
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+ }
+ 
+ button.learn-more {
+  width: 12rem;
+  height: auto;
+ }
+ 
+ button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #4147a3;
+  border-radius: 1.625rem;
+ }
+ 
+ button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+ }
+ 
+ button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+ }
+ 
+ button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+ }
+ 
+ button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #6cb8ff;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+ }
+ 
+ button:hover .circle {
+  width: 100%;
+ }
+ 
+ button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+ }
+ 
+ button:hover .button-text {
+  color: #fff;
+ }
+footer{
+  background-color: rgba(49, 49, 49, 0.7)  ;
+  margin-top: 200px;
+  border: 1px solid #6cb8ff;
+  border-radius: 20px;
+  padding: 40px;
+}
+.maps {
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+}
+.footer-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+}
+.footer-list {
+  list-style-type: none;
+  display: flex; /* Standard-Layout */
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.footer {
+  display:inline;
+  margin-left: 50px;
+}
+section {
+  margin-bottom: 200px;
 }
