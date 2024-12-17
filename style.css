@@ -552,3 +552,20 @@ footer{
 section {
   margin-bottom: 200px;
 }
+.text-input {
+  background-color: rgb(206, 197, 197);
+  border: 2px solid black;
+}
+.text-input:focus {
+  background-color: rgb(230, 217, 217);
+  border: 2px solid blue;
+}
+.highlight {
+  padding: 5px;
+  display: inline;
+  background-color: yellow;
+  color: black;
+}
+.poiret-one-regular {
+  display: inline;
+}
